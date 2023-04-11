@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:map="clr-namespace:Syncfusion.Maui.Maps;assembly=Syncfusion.Maui.Maps"
+             xmlns:local="clr-namespace:MapMarkerUpdate"
+             x:Class="MapMarkerUpdate.MainPage">
+
+    <ContentPage.Behaviors>
+        <local:MapsBehavior />
+    </ContentPage.Behaviors>
+    <Grid RowDefinitions="0.9*,0.1*">
+        <map:SfMaps x:Name="map">
+            <map:SfMaps.Layer>
+                <map:MapTileLayer x:Name="layer"
+                                  UrlTemplate="https://tile.openstreetmap.org/{z}/{x}/{y}.png">
+                    <map:MapTileLayer.ZoomPanBehavior>
+                        <map:MapZoomPanBehavior ZoomLevel="2"
+                                                EnablePanning="True" />
+                    </map:MapTileLayer.ZoomPanBehavior>
+                    <map:MapTileLayer.Markers>
+                        <map:MapMarkerCollection x:Name="MarkerCollection">
+                            <map:MapMarker Latitude="-14.235004"
+                                           IconWidth="15"
+                                           IconHeight="15"
+                                           IconFill="#2f98f3"
+                                           IconType="Circle"
+                                           Longitude="-51.92528" />
+                            <map:MapMarker Latitude="51.16569"
+                                           IconWidth="15"
+                                           IconHeight="15"
+                                           IconFill="#2f98f3"
+                                           IconType="Circle"
+                                           Longitude="10.451526" />
+                            <map:MapMarker Latitude="-25.274398"
+                                           IconWidth="15"
+                                           IconHeight="15"
+                                           IconFill="#2f98f3"
+                                           IconType="Circle"
+                                           Longitude="133.775136" />
+                            <map:MapMarker Latitude="61.52401"
+                                           IconWidth="15"
+                                           IconHeight="15"
+                                           IconType="Circle"
+                                           IconFill="#2f98f3"
+                                           Longitude="105.318756" />
+                        </map:MapMarkerCollection>
+                    </map:MapTileLayer.Markers>
+                </map:MapTileLayer>
+            </map:SfMaps.Layer>
+        </map:SfMaps>
+
+        <Grid Grid.Row="1"
+              ColumnDefinitions="0.25*, 0.25*, 0.25*, 0.25*"
+              HorizontalOptions="Center"
+              ColumnSpacing="10">
+            <Button x:Name="AddButton"
+                    Text="Add"
+                    HeightRequest="40"
+                    WidthRequest="80" />
+            <Button Grid.Column="1"
+                    x:Name="UpdateButton"
+                    Text="Update"
+                    HeightRequest="40"
+                    WidthRequest="80" />
+            <Button Grid.Column="2"
+                    x:Name="RemoveButton"
+                    Text="Remove"
+                    HeightRequest="40"
+                    WidthRequest="80" />
+            <Button Grid.Column="3"
+                    x:Name="ClearButton"
+                    Text="Clear"
+                    HeightRequest="40"
+                    WidthRequest="80" />
+        </Grid>
+    </Grid>
+
+</ContentPage>
